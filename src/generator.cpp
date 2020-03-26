@@ -1,12 +1,11 @@
-#include "hash.h"
-#include <iostream>
+#include "generator.h"
 #include <stdlib.h>  // for strtol
 
-Hash::Hash(std::string pass){
+Generator::Generator(std::string pass){
 
 }
 
-void Hash::GeneratePassword(std::bitset<7> bits){
+void Generator::GeneratePassword(std::bitset<7> bits){
     int num = (int)(bits.to_ulong());
 
     std::string newPass = "";
@@ -17,3 +16,9 @@ void Hash::GeneratePassword(std::bitset<7> bits){
 
 }
 
+std::string Generator::Hash(std::string){
+
+
+
+    return "";
+}

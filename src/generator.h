@@ -1,10 +1,11 @@
 #pragma once
 
-#include<bitset>
-#include<iostream>
-class Hash{
+#include <bitset>
+#include <iostream>
+#include <string>
+class Generator{
     public:
-        Hash(std::string pass);
+        Generator(std::string pass);
 
         // bitset will be in the following form
         //  |   bits 1 - 6    | bit 7 |
@@ -23,9 +24,7 @@ class Hash{
             {
                 if(rem >= curr){
                     bs[ct] = 1;
-                    std::cout << "rem=" << rem << " cur=" << curr << "\n";
                     rem %= curr;
-                    std::cout << rem << "\n";
                 }
                 else{
                     bs[ct] = 0;
@@ -35,4 +34,5 @@ class Hash{
             }
             return bs;
         }
+        static std::string Hash(std::string);
 };
