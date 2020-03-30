@@ -77,7 +77,7 @@ void Generator::GeneratePassword(bitset<6> bits){
             case 3:
                 if(nUsed == numbers.size())
                     continue;
-                newPass += numbers[sUsed];
+                newPass += numbers[nUsed];
                 nUsed++;
                 break;
         }
