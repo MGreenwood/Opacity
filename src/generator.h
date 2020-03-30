@@ -8,18 +8,17 @@ class Generator{
         Generator(std::string pass);
 
         // bitset will be in the following form
-        //  |   bits 1 - 6    | bit 7 |
+        //  |   bits 1 - 6    | bit 6 |
         //  +-----------------+-------+
         //  | number of chars |symbols|
-        void GeneratePassword(std::bitset<7> bits);
+        void GeneratePassword(std::bitset<6> bits);
 
-        static std::bitset<7> IntToBitset(int i){
+        static std::bitset<6> IntToBitset(int i){
             if(i > 63)
-                return 0x0;
+                return 0xF;
 
             int curr = 32, rem = i, ct = 5;
-            std::bitset<7> bs;
-            bs[6] = 0;
+            std::bitset<6> bs;
             while(curr >= 1)
             {
                 if(rem >= curr){
@@ -34,5 +33,4 @@ class Generator{
             }
             return bs;
         }
-        static std::string Hash(std::string);
 };

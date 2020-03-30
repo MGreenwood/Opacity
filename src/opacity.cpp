@@ -5,7 +5,9 @@
 #include <string>
 
 int main(int argc, char** argv){
-    std::bitset<7> set = (0xF << 1) + 1;
+    // Default password is 15 characters
+    // Max is 63
+    std::bitset<6> set = 0xF;
 
     if(argc > 1){
         int num = strtol(argv[1], NULL, 10);
