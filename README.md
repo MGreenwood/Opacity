@@ -5,7 +5,7 @@
 You'll notice that there's not much here. Well, I just started this project to learn c++ more deeply.
 Feel free to fix all of my awful college habits, we aren't often taught best practices...
 
-##Usage
+## Usage
 $ opacity (optional)<len>
 -------------------------
 Supplying no arguments will create a password of length 15
