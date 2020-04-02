@@ -6,7 +6,7 @@ You'll notice that there's not much here. Well, I just started this project to l
 Feel free to fix all of my awful college habits, we aren't often taught best practices...
 
 ## Usage
-$ opacity (optional)<len>
+$ opacity (optional) <len>
 -------------------------
 Supplying no arguments will create a password of length 15
 Minimum password length is 8, while maximum is 63

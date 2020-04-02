@@ -42,16 +42,11 @@ void Generator::GeneratePassword(bitset<6> bits){
 
     for(int i=0; i<minOfEach; ++i){
         newPass += lower[i];
-    }
-    for(int i=0; i<minOfEach; ++i){
         newPass += upper[i];
-    }
-    for(int i=0; i<minOfEach; ++i){
         newPass += symbols[i];
-    }
-    for(int i=0; i<minOfEach; ++i){
         newPass += numbers[i];
     }
+
     srand(chrono::steady_clock::now().time_since_epoch().count());
     while(newPass.length() < num){
         short sel = rand() % 4;
