@@ -19,7 +19,4 @@ $ opacity (optional pass length)
 Supplying no arguments will create a password of length 15
 Minimum password length is 8, while maximum is 63
 
-ex: opacity 24
-
-output - "This is your new password: 5=0p3sK2r4w6o%C*-U1y_vN$"
-
+![example 1](media/creationExample.png)
