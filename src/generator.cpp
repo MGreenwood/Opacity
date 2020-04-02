@@ -19,19 +19,16 @@ int minOfEach = 2;
 int minLength = 8;
 
 Generator::Generator(string pass){
-    // shuffle all dictionaries
     // apparently this is the best way to generate random numbers
     mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+    // shuffle all dictionaries
     shuffle(lower.begin(), lower.end(), rng);
     shuffle(upper.begin(), upper.end(), rng);
     shuffle(symbols.begin(), symbols.end(), rng);
 }
 
 void Generator::GeneratePassword(bitset<6> bits){
-    int lUsed = minOfEach;
-    int uUsed = minOfEach;
-    int sUsed = minOfEach;
-    int nUsed = minOfEach;
     int num = (int)(bits.to_ulong());
 
     if(num < minLength){
@@ -40,6 +37,7 @@ void Generator::GeneratePassword(bitset<6> bits){
 
     string newPass = "";
 
+    // insert the minimum number of each type
     for(int i=0; i<minOfEach; ++i){
         newPass += lower[i];
         newPass += upper[i];
@@ -48,32 +46,43 @@ void Generator::GeneratePassword(bitset<6> bits){
     }
 
     srand(chrono::steady_clock::now().time_since_epoch().count());
+    string val;
     while(newPass.length() < num){
         short sel = rand() % 4;
         switch(sel){
             case 0:
-                if(lUsed == lower.size())
+                if(lower.size() == 0)
                     continue;
-                newPass += lower[lUsed];
-                lUsed++;
+                val = lower.back();
+                newPass += val;
+                lower.pop_back();
+                cout << "popped " << val << endl;
+                cout << "Current lower: ";
+                for(char l: lower){
+                   cout << l;
+                }
+                cout << endl;
                 break;
             case 1:
-                if(uUsed == upper.size())
+                if(upper.size() == 0)
                     continue;
-                newPass += upper[uUsed];
-                uUsed++;
+                val = upper.back();
+                newPass += val;
+                upper.pop_back();
                 break;
             case 2:
-                if(sUsed == symbols.size())
+                if(symbols.size() == 0)
                     continue;
-                newPass += symbols[sUsed];
-                sUsed++;
+                val = symbols.back();
+                newPass += val;
+                symbols.pop_back();
                 break;
             case 3:
-                if(nUsed == numbers.size())
+                if(numbers.size() == 0)
                     continue;
-                newPass += numbers[nUsed];
-                nUsed++;
+                val = numbers.back();
+                newPass += val;
+                numbers.pop_back();
                 break;
         }
     }
