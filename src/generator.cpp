@@ -15,10 +15,10 @@ vector<char> upper {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
 vector<char> symbols   { '!', '@', '#', '$', '%', '^', '&', '*',
                        '(', ')', '_', '+', '-', '=' };
 vector<char> numbers {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-int minOfEach = 2;
-int minLength = 8;
+unsigned int minOfEach = 2;
+unsigned int minLength = 8;
 
-Generator::Generator(string pass){
+Generator::Generator(){
     // apparently this is the best way to generate random numbers
     mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
@@ -29,7 +29,7 @@ Generator::Generator(string pass){
 }
 
 void Generator::GeneratePassword(bitset<6> bits){
-    int num = (int)(bits.to_ulong());
+    unsigned int num = (int)(bits.to_ulong());
 
     if(num < minLength){
         num = minLength;
@@ -38,7 +38,7 @@ void Generator::GeneratePassword(bitset<6> bits){
     string newPass = "";
 
     // insert the minimum number of each type
-    for(int i=0; i<minOfEach; ++i){
+    for(unsigned int i=0; i<minOfEach; ++i){
         newPass += lower[i];
         newPass += upper[i];
         newPass += symbols[i];
@@ -56,12 +56,6 @@ void Generator::GeneratePassword(bitset<6> bits){
                 val = lower.back();
                 newPass += val;
                 lower.pop_back();
-                cout << "popped " << val << endl;
-                cout << "Current lower: ";
-                for(char l: lower){
-                   cout << l;
-                }
-                cout << endl;
                 break;
             case 1:
                 if(upper.size() == 0)

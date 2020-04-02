@@ -14,6 +14,6 @@ int main(int argc, char** argv){
         set = Generator::IntToBitset(num);
     }
 
-    Generator gen = Generator("test");
+    Generator gen = Generator();
     gen.GeneratePassword(set);
 }

@@ -5,7 +5,7 @@
 #include <string>
 class Generator{
     public:
-        Generator(std::string pass);
+        Generator();
 
         // bitset will be in the following form
         //  |   bits 1 - 6    | bit 6 |
